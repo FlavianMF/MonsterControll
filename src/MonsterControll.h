@@ -14,6 +14,7 @@ class MonsterControll {
   void backward(int leftPwm, int rightPwm = -1);
   void leftward(int leftPwm, int rightPwm = -1);
   void rightward(int leftPwm, int rightPwm = -1);
+  void stop();
   void leftWheel(int pwm);
   void rightWheel(int pwm);
 

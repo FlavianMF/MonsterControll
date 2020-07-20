@@ -67,6 +67,15 @@ void MonsterControll::rightward(int leftPwm, int rightPwm) {
   }
 }
 
+void MonsterControll::stop() {
+  if (_robotStatus != STOPED) {
+    _robotStatus = STOPED;
+    ledcWrite(_leftPwmChannel, 0);
+    ledcWrite(_rightPwmChannel, 0);
+    GPIO.out_w1ts = _forwardBitMaskSet + _backwardBitMaskSet;
+  }
+}
+
 void MonsterControll::leftWheel(int pwm) {
   if (pwm > 0) {
     ledcWrite(_leftPwmChannel, pwm);
